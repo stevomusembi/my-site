@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function Header() {
     const navItems = [
-        { href: "/", label: "About Me" },
+        { href: "/about", label: "About Me" },
         { href: "/projects", label: "Projects" },
         { href: "/contact", label: "Contact" },
     ];
@@ -27,7 +27,7 @@ export default function Header() {
             <span className="text-lg font-bold">
                 Steven Musembi <small>/ Software Engineer</small>
             </span>
-            <ul className="flex basis-1/3 justify-end space-x-4">
+            <ul className="flex basis-1/3 justify-end space-x-4 max-sm:hidden">
                 {navItems.map((item) => (
                     <li key={item.href}>
                         <Link className={`${currentPage === item.href ? activeLink : normalLink}`}  href={item.href}>

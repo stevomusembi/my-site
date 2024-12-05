@@ -12,7 +12,7 @@ export default function Footer() {
     ];
 
     return (
-        <div className="flex items-center justify-center p-8 bg-stone-200 ">
+        <div className="flex items-center justify-center p-8 bg-brown ">
             <ul className="flex  justify-end ">
                 {socialIcons.map((item) => (
                     <li key={item.href} className="p-4">
