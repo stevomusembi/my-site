@@ -17,11 +17,11 @@ export default function About() {
                 className="max-w-[50%] max-h-[50%] lg:max-w-[50%] lg:max-h-[50%] md:max-w-[70%] md:max-h-[70%]"
             />
 
-            <div className="lg:w-1/2 bg-stone-200 xl:py-64 lg:py-28 xl:px-24 lg:px-12 h-6/6 text-gray-950" >
+            <div className="lg:w-1/2  bg-brown xl:py-64 lg:py-28 xl:px-24 lg:px-12 h-6/6 text-gray-950" >
                 <div className="flex  flex-col justify-center items-center p-4">
-                    <h2 className="lg:text-6xl text-4xl my-3 font-bold text-center lg:py-8 py-4	 ">Hello I'm {name}</h2>
+                    <h2 className="lg:text-6xl text-4xl my-3 font-bold text-center lg:py-8 py-4	 ">Hello I'm <span className="text-blue-500 font-bold">  {name} </span></h2>
                     <p className="leading-6 mb-5 text-base text-neutral-950 tracking-wider" >
-                        I am a Software Engineer based in Raleigh NC, with more than two years of experience as a software engineer building front-end experiences for Meliora Technologies and 1 year as a software developer  with I3 Technologies building customised solutions to our clients
+                        I am a <span className="text-blue-500 font-bold">  Software Engineer </span> based in <span className="text-blue-500 font-bold">Raleigh NC, </span> with more than two years of experience as a software engineer building front-end experiences for Meliora Technologies and 1 year as a software developer  with I3 Technologies building customised solutions to our clients
 
                     </p>
                     <p className="leading-6 text-base  text-neutral-950 tracking-wider">  I enjoy discovering how things work, merging my technical ability to deliver great user interfaces and the process of learning new technologies that I can apply to my workand personal projects..</p>
