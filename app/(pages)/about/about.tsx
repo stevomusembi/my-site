@@ -5,23 +5,25 @@ import myPic from "../../public/me.JPEG"
 
 
 export default function About() {
-    const name = "Steven Musembi"
+    const name = "Steven"
 
     return (
-        <main className="min-h-screen flex items-center justify-center flex-row" >
+        <main className=" m-12 py-32 px-20 flex flex-wrap items-center justify-center flex-row" >
 
             <Image
                 src={myPic}
-                width={300}
-                height={300}
+                width={500}
+                height={500}
                 alt="Picture of steven"
             />
-            <div className="w-1/3 bg-stone-200 p-8 h-5/6">
+            <div className="w-1/2 bg-stone-200 py-64 px-24 h-6/6 text-gray-950" >
                 <div className="flex  flex-col justify-center items-center">
-                    <h4>Hello I am <strong> {name} </strong></h4>
-                    <span>
-                        I am a Software  Engineer based in ------- with years of experience building front end experiences in Meliora Technologies.I enjoy discovering how things work and the process oflearning new technologies that I can apply to my workand personal projects..
-                    </span>
+                    <h2 className="text-6xl my-3 font-bold text-center py-8	 ">Hello I'm {name}</h2>
+                    <p className="leading-6 mb-5 text-base text-neutral-950 tracking-wider" >
+                        I am a Software Engineer based in Raleigh NC, with 2 years of experience as a software engineer building front-end experiences for Meliora Technologies and 1 year as a software developer  with I3 Technologies building customised solutions to our clients 
+
+                    </p>
+                    <p className="leading-6 text-base  text-neutral-950 tracking-wider">  I enjoy discovering how things work, merging my technical ability to deliver great user interfaces and the process of learning new technologies that I can apply to my workand personal projects..</p>
                 </div>
             </div>
 
