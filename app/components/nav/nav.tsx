@@ -26,7 +26,7 @@ export default function Header() {
     return (
         <nav className="flex basis-1/4 items-center justify-between mx-5 my-5 px-4">
             <span className="text-lg font-bold">
-                Steven Musembi <small>/ Software Engineer</small>
+               <span className=" bg-blue-500 py-1 px-4 mr-2  max-sm:hidden"></span> Steven Musembi <small>/ Software Engineer</small>
             </span>
             <ul className="flex basis-1/3 justify-end space-x-4 max-sm:hidden">
                 {navItems.map((item) => (

@@ -25,7 +25,7 @@ export default function Contact() {
                         {contactInfo.map((info, index) => (
                             <div key={index} className="p-2 lg:p-8 cursor-pointer" >
                                 <div className="flex items-center m-2">
-                                    <FontAwesomeIcon icon={info.icon} className=" text-gray-950 text-2xl lg:text-4xl mr-3" />
+                                    <FontAwesomeIcon icon={info.icon} className=" text-gray-800 text-2xl lg:text-4xl mr-3" />
                                     <span className="flex flex-col">
                                         <span className="font-bold text-xs lg:text-xl">{info.Name}</span>
                                         {info.link ? (
