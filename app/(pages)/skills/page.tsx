@@ -30,9 +30,9 @@ export default function Skills() {
     ];
 
     return (
-        <main className="m-4 p-8">
-            <div className="bg-brown px-4 py-2">
-                <h1 className="text-center text-blue-500 lg:text-4xl text-xl font-bold">
+        <main className="mt-12">
+            <div className="bg-brown px-4 py-12 mb-5">
+                <h1 className="text-center text-blue-500 lg:text-4xl text-xl font-bold mt-8">
                     My Skills
                 </h1>
                 <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-12 justify-center py-4 px-4 lg:py-32 lg:px-32" >
