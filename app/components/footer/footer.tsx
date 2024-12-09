@@ -10,9 +10,10 @@ export default function Footer() {
         { href: "https://github.com/stevomusembi", icon: faGithub },
         { href: "https://www.instagram.com/steven_musembi", icon: faInstagram },
     ];
+    const year = new Date().getFullYear();
 
     return (
-        <div className="flex items-center justify-center p-8 bg-brown ">
+        <div className="flex flex-col items-center justify-center p-8 bg-brown ">
             <ul className="flex  justify-end ">
                 {socialIcons.map((item) => (
                     <li key={item.href} className="p-4">
@@ -21,7 +22,10 @@ export default function Footer() {
                         </Link>
                     </li>
                 ))}
-            </ul>
+            </ul><br/>
+            <span className="text-stone-500 text-sm md:text-lg font-bold">
+            stevenmusembi.com &copy; {year}</span>
+          
         </div>
     )
 };
