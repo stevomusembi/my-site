@@ -6,9 +6,9 @@ import { faLinkedinIn, faGithub, faInstagram } from "@fortawesome/free-brands-sv
 
 export default function Footer() {
     const socialIcons = [
-        { href: "https://www.linkedin.com/in/yourprofile", icon: faLinkedinIn },
-        { href: "https://github.com/yourprofile", icon: faGithub },
-        { href: "https://www.instagram.com/yourprofile", icon: faInstagram },
+        { href: "https://www.linkedin.com/in/stevenmusembi", icon: faLinkedinIn },
+        { href: "https://github.com/stevomusembi", icon: faGithub },
+        { href: "https://www.instagram.com/steven_musembi", icon: faInstagram },
     ];
 
     return (
