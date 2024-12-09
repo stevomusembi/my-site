@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function Header() {
     const navItems = [
         { href: "/about", label: "About Me" },
+        { href: "/skills", label: "Skills" },
         { href: "/projects", label: "Projects" },
         { href: "/contact", label: "Contact" },
     ];
