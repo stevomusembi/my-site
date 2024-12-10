@@ -14,10 +14,10 @@ export default function About() {
                 width={500}
                 height={500}
                 alt="Picture of Steven"
-                className="max-w-[50%] max-h-[50%] lg:max-w-[50%] lg:max-h-[50%] md:max-w-[70%] md:max-h-[70%]"
+                className="max-w-[50%] max-h-[50%] lg:max-w-[50%] lg:max-h-[50%] md:max-w-[70%] md:max-h-[70%] shadow-lg"
             />
 
-            <div className="lg:w-1/2  bg-brown xl:py-64 lg:py-28 xl:px-24 lg:px-12 h-6/6 text-gray-950" >
+            <div className="lg:w-1/2  bg-brown xl:py-64 lg:py-28 xl:px-24 lg:px-12 h-6/6 text-gray-950 shadow-lg" >
                 <div className="flex  flex-col justify-center items-center p-4">
                     <h2 className="lg:text-6xl text-4xl my-3 font-bold text-center lg:py-8 py-4	 ">Hello I'm <span className="text-blue-500 font-bold">  {name} </span></h2>
                     <p className="leading-6 mb-5 text-base text-neutral-950 tracking-wider" >
