@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import myPic from "../../public/myPic.JPEG"
 
 
 export default function About() {
@@ -10,7 +9,7 @@ export default function About() {
     return (
         <main className=" lg:m-4 xl:m-12 m-2 xl:py-32 lg:py-4 py-8 px-8 xl:px-20 lg:px-8 flex md:flex-wrap flex-wrap items-center justify-center flex-row" >
             <Image
-                src={myPic}
+                src='/myPic.JPEG'
                 width={500}
                 height={500}
                 alt="Picture of Steven"
