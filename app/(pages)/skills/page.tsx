@@ -1,16 +1,4 @@
 "use client"
-import angularIcon from "../../public/angular.svg"
-import nextIcon from "../../public/next.svg"
-import azureIcon from "../../public/azure.svg"
-import bootstrapIcon from "../../public/bootstrap.svg"
-import scssIcon from "../../public/scss.svg"
-import supabaseIcon from "../../public/supabase.svg"
-import nodeIcon from "../../public/node.svg"
-import mysqlIcon from "../../public/mysql.svg"
-import gitIcon from "../../public/git.svg"
-import dockerIcon from "../../public/docker.svg"
-import figmaIcon from "../../public/figma.svg"
-import tsIcon from "../../public/ts.svg"
 import { useEffect, useState } from "react"
 import Spinner from "@/app/components/loadingSpinner/spinner"
 import Skill from "@/app/components/skill/skill"
@@ -20,24 +8,24 @@ export default function Skills() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1000); 
+        }, 1000);
 
         return () => clearTimeout(timer);
     }, []);
 
     const skills = [
-        { src: angularIcon, name: "Angular" },
-        { src: nextIcon, name: "Next.js" },
-        { src: azureIcon, name: "Azure" },
-        { src: bootstrapIcon, name: "Bootstrap" },
-        { src: scssIcon, name: "SCSS" },
-        { src: supabaseIcon, name: "Supabase" },
-        { src: nodeIcon, name: "Node.js" },
-        { src: mysqlIcon, name: "MySQL" },
-        { src: gitIcon, name: "Git" },
-        { src: dockerIcon, name: "Docker" },
-        { src: figmaIcon, name: "Figma" },
-        { src: tsIcon, name: "TypeScript" },
+        { src: "/angular.svg", name: "Angular" },
+        { src: "/next.svg", name: "Next.js" },
+        { src: "/azure.svg", name: "Azure" },
+        { src: "/bootstrap.svg", name: "Bootstrap" },
+        { src: "/scss.svg", name: "SCSS" },
+        { src: "/supabase.svg", name: "Supabase" },
+        { src: "/node.svg", name: "Node.js" },
+        { src: "/mysql.svg", name: "MySQL" },
+        { src: "/git.svg", name: "Git" },
+        { src: "/docker.svg", name: "Docker" },
+        { src: "/figma.svg", name: "Figma" },
+        { src: "/ts.svg", name: "TypeScript" },
     ];
 
     return (
@@ -48,12 +36,12 @@ export default function Skills() {
                 </h1>
                 {loading ? (
                     <div className="flex justify-center items-center h-64">
-                       <Spinner />
+                        <Spinner />
                     </div>
                 ) :
                     <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-12 justify-center py-4 px-4 lg:py-32 lg:px-32" >
                         {skills.map((skill, index) => (
-                           <Skill key={index} {...skill} />
+                            <Skill key={index} {...skill} />
                         ))}
                     </div>
                 }
