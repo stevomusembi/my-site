@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Spinner from "@/app/components/loadingSpinner/spinner";
 import { ProjectType } from "@/app/global";
 
-const getProjects:any = async () => {
+const getProjects= async () => {
   try {
     const response = await fetch("/api/projects");
     const data = await response.json();

@@ -8,7 +8,7 @@ import { ProjectType } from "@/app/global";
 
 export default function Project(project: ProjectType) {
     const router = useRouter();
-    const handleLinkClick = (id: any) => {
+    const handleLinkClick = (id: string) => {
         router.push(`/projects/${id}`);
     };
     return (
