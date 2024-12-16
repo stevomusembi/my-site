@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons"
 import { useRouter } from "next/navigation";
+import { ProjectType } from "@/app/global";
 
-export default function Project(project: any) {
+export default function Project(project: ProjectType) {
     const router = useRouter();
     const handleLinkClick = (id: any) => {
         router.push(`/projects/${id}`);

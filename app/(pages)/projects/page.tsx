@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Spinner from "@/app/components/loadingSpinner/spinner";
 import Project from "@/app/components/project/project";
+import { ProjectType } from "@/app/global";
 
 
 const getProjects = async () => {
@@ -43,8 +44,8 @@ export default function Projects() {
                         <Spinner />
                     ) :
                         <div className="lg:p-8">
-                            {projects.map((project:any, index) => (
-                                <><Project key={project.id} {...project} />
+                            {projects.map((project:ProjectType, index) => (
+                                <><Project key={project._id} {...project} />
                                     {index < projects.length - 1 && (
                                         <hr className="border-b-2 border-blue-300 w-1/6 mt-6 mb-16 mx-auto" />
                                     )}
