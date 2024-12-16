@@ -20,10 +20,9 @@ export default function About() {
                 <div className="flex  flex-col justify-center items-center p-4">
                     <h2 className="lg:text-6xl text-4xl my-3 font-bold text-center lg:py-8 py-4	 ">Hello I'm <span className="text-blue-500 font-bold">  {name} </span></h2>
                     <p className="leading-6 mb-5 text-base text-neutral-950 tracking-wider" >
-                        I am a <span className="text-blue-500 font-bold">  Software Engineer </span> based in <span className="text-blue-500 font-bold">Raleigh NC, </span> with over two years of experience as a software engineer building front-end experiences for Meliora Technologies and 1 year as a software developer  with I3 Technologies building customised solutions to our clients
-
+                        I am a <span className="text-blue-500 font-bold">  Software Engineer </span> based in <span className="text-blue-500 font-bold">Raleigh NC, </span> with over three years of professional experience. At <a className="text-blue-500 underline" target="_blank" rel="noopener noreferrer" href="https://www.meliora.co.ke">Meliora Technologies</a>, I've honed my skills in crafting intuitive and engaging front-end experiences.I also developed customized solutions tailored to our clients' unique needs.
                     </p>
-                    <p className="leading-6 text-base  text-neutral-950 tracking-wider">  I enjoy discovering how things work, merging my technical ability to deliver great user interfaces and the process of learning new technologies that I can apply to my workand personal projects..</p>
+                    <p className="leading-6 text-base  text-neutral-950 tracking-wider"> I thrive on the thrill of discovery, constantly exploring how things work. My technical expertise allows me to create seamless user interfaces, while my love for learning new technologies keeps me at the forefront of innovation. Whether it's a professional project or a personal endeavor, I am dedicated to delivering exceptional results.</p>
                 </div>
             </div>
 
