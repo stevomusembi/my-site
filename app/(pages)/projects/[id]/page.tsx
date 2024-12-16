@@ -10,17 +10,21 @@ const getProjects= async () => {
   try {
     const response = await fetch("/api/projects");
     const data = await response.json();
-    console.log("called fetch", data)
     return data.projects;
   } catch (error) {
     console.log(error);
   }
 }
 
+interface ProjectDetailProps {
+  params: {
+  id: string;
+  };
+  }
 
-export default function ProjectDetail( params : ProjectType) {
+export default function ProjectDetail( {params }: ProjectDetailProps) {
 
-  const projectID = params._id;
+  const projectID = params.id;
   const [loading, setLoading] = useState(true);
   const [project, setProject] = useState<ProjectType | null >(null);
 
