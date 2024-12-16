@@ -1,11 +1,12 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { Github, Eye, ChevronLeft } from 'lucide-react';
+import { Github, Eye } from 'lucide-react';
 import { useEffect, useState } from "react";
 import Spinner from "@/app/components/loadingSpinner/spinner";
+import { ProjectType } from "@/app/global";
 
-const getProjects: any = async () => {
+const getProjects= async () => {
   try {
     const response = await fetch("/api/projects");
     const data = await response.json();
@@ -17,16 +18,16 @@ const getProjects: any = async () => {
 }
 
 
-export default function ProjectDetail({ params }: any) {
+export default function ProjectDetail( params : ProjectType) {
 
-  const projectID = params.id;
+  const projectID = params._id;
   const [loading, setLoading] = useState(true);
-  const [project, setProject] = useState<any>([]);
+  const [project, setProject] = useState<ProjectType | null >(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
       const projects = await getProjects();
-      const projectData = projects.find((proj: any) => proj._id === projectID);
+      const projectData = projects.find((proj: ProjectType) => proj._id === projectID);
       setProject(projectData);
       setLoading(false);
     };
@@ -56,11 +57,11 @@ export default function ProjectDetail({ params }: any) {
         </div>
       ) :
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl mb-6 font-bold">{project.name}</h1>
+          <h1 className="text-3xl mb-6 font-bold">{project.title}</h1>
           <div className="mb-6">
             <Image
               src={project.image}
-              alt={project.name}
+              alt={project.title}
               width={800}
               height={600}
               className="rounded-lg "
