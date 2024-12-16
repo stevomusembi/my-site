@@ -2,84 +2,89 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Eye, ChevronLeft } from 'lucide-react';
+import { useEffect, useState } from "react";
+import Spinner from "@/app/components/loadingSpinner/spinner";
 
-const projects = [
-  {
-    id: 1,
-    name: "Project One",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-    image: '/Screenshot.png',
-    link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-
+const getProjects: any = async () => {
+  try {
+    const response = await fetch("/api/projects");
+    const data = await response.json();
+    console.log("called fetch", data)
+    return data.projects;
+  } catch (error) {
+    console.log(error);
   }
+}
 
-  , {
-    id: 2,
-    name: "Project Two",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-    image: '/Screenshot2.png',
-    link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
-  }
-  , {
-    id: 3,
-    name: "Project Three",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, volupt Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, volupt",
-    image: '/Screenshot3.png',
-    link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  }
-];
 export default function ProjectDetail({ params }: any) {
 
-  const project = projects.find(p => p.id === Number(params.id));
-  // console.log(project);
-  // Handle case where project is not found
+  const projectID = params.id;
+  const [loading, setLoading] = useState(true);
+  const [project, setProject] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getProjects();
+      const projectData = projects.find((proj: any) => proj._id === projectID);
+      setProject(projectData);
+      setLoading(false);
+    };
+
+    fetchProjects();
+  }, [projectID]);
+
   if (!project) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
-          <Link href="/projects" className="text-blue-500 hover:underline">
-            Back to Projects
-          </Link>
+      <div className="container mx-auto px-4 py-8 bg-brown">
+        <div className="flex justify-center items-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
+            <Link href="/projects" className="text-blue-500 hover:underline">
+              Back to Projects
+            </Link>
+          </div>
         </div>
       </div>
     );
   }
   return (
-    <div className="container mx-auto px-4 py-8 bg-brown">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl mb-6 font-bold">{project.name}</h1>
-        <div className="mb-6">
-          <Image
-            src={project.image}
-            alt={project.name}
-            width={800}
-            height={600}
-            className="rounded-lg shadow-lg"
-          />
+    <div className="container mx-auto px-4 py-8 mb-5 bg-brown">
+      {loading ? (
+        <div className="flex justify-center items-center">
+          <Spinner />
         </div>
-        <p className="mb-6">{project.description}</p>
-        <div className="flex space-x-4">
-          <Link
-            href={project.link}
-            target="_blank"
-            className="flex bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          > <Eye />
-            <span className="ml-2"> View Project</span>
-          </Link>
-          <Link
-            href={project.githubLink}
-            target="_blank"
-            className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 flex"
-          ><Github />
-            <span className="ml-2">GitHub Repository</span>
-          </Link>
+      ) :
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl mb-6 font-bold">{project.name}</h1>
+          <div className="mb-6">
+            <Image
+              src={project.image}
+              alt={project.name}
+              width={800}
+              height={600}
+              className="rounded-lg "
+            />
+          </div>
+          <p className="mb-6 leading-6 text-base  text-neutral-950 tracking-wider">{project.description}</p>
+          <div className="flex space-x-4">
+            <Link
+              href={project.link || "#"}
+              target="_blank"
+              className="flex bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            > <Eye />
+              <span className="ml-2"> View Project</span>
+            </Link>
+            <Link
+              href={project.githubLink || "#"}
+              target="_blank"
+              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 flex"
+            ><Github />
+              <span className="ml-2">GitHub Repository</span>
+            </Link>
+          </div>
         </div>
-      </div>
+      }
     </div>
   )
 }

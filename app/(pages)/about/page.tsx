@@ -9,11 +9,11 @@ export default function About() {
     return (
         <main className=" lg:m-4 xl:m-12 m-2 xl:py-32 lg:py-4 py-8 px-8 xl:px-20 lg:px-8 flex md:flex-wrap flex-wrap items-center justify-center flex-row" >
             <Image
-                src='/myPic.JPEG'
+                src='/me.JPEG'
                 width={500}
                 height={500}
-                alt="Picture of Steven"
                 className="max-w-[50%] max-h-[50%] lg:max-w-[50%] lg:max-h-[50%] md:max-w-[70%] md:max-h-[70%] shadow-lg"
+                alt="Picture of Steven"
             />
 
             <div className="lg:w-1/2  bg-brown xl:py-64 lg:py-28 xl:px-24 lg:px-12 h-6/6 text-gray-950 shadow-lg" >

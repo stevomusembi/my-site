@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const navItems = [
@@ -26,18 +26,20 @@ export default function Header() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="flex basis-1/4 items-center justify-between mx-5 my-5 px-4">
+      <nav className="flex basis-1/4 items-center justify-between mx-5 my-8 px-4">
         <span className="text-lg font-bold">
-          <span className="bg-blue-500 py-1 px-4 mr-2 max-sm:hidden"></span> 
-          Steven Musembi <small>/ Software Engineer</small>
+          <Link href="/about" className="cursor-pointer" >
+            <span className="bg-blue-500 py-1 px-4 mr-2 max-sm:hidden"></span>
+            Steven Musembi <small>/ Software Engineer</small>
+          </Link>
         </span>
-        
+
         {/* Desktop Menu */}
-        <ul className="flex basis-1/3 justify-end space-x-4 max-sm:hidden">
+        <ul className="flex basis-1/3 justify-end space-x-6 max-sm:hidden mr-10">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link 
-                className={`${path === item.href ? activeLink : normalLink}`}  
+              <Link
+                className={`${path === item.href ? activeLink : normalLink}`}
                 href={item.href}
               >
                 {item.label}
@@ -47,8 +49,8 @@ export default function Header() {
         </ul>
 
         {/* Mobile Menu Toggle */}
-        <button 
-          onClick={toggleMenu} 
+        <button
+          onClick={toggleMenu}
           className="sm:hidden absolute top-5 right-5 z-50 text-blue-600"
           aria-label="Toggle Menu"
         >
@@ -58,14 +60,14 @@ export default function Header() {
 
       {/* Mobile Side Navigation Overlay */}
       {isMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={toggleMenu}
         />
       )}
 
       {/* Mobile Side Navigation */}
-      <div 
+      <div
         className={`
           fixed top-0 left-0 h-full w-2/3 bg-brown z-50 shadow-lg
           transform transition-transform duration-300 ease-in-out
@@ -75,12 +77,12 @@ export default function Header() {
         <ul className="flex flex-col p-8 space-y-6 mt-16 ">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link 
+              <Link
                 onClick={toggleMenu}
                 className={`
                   block text-xl py-4 mb-4
                   ${path === item.href ? activeLink : normalLink}
-                `}  
+                `}
                 href={item.href}
               >
                 {item.label}

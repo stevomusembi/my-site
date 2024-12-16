@@ -4,46 +4,34 @@ import Spinner from "@/app/components/loadingSpinner/spinner";
 import Project from "@/app/components/project/project";
 
 
+const getProjects = async () => {
+    try {
+        const response = await fetch("/api/projects");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 export default function Projects() {
     const [loading, setLoading] = useState(true);
+    const [projects, setProjects] = useState([]);
 
-    const projects = [
-        {
-            id:1,
-            name: "Project One",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image:"/Screenshot.png",
-            link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-
-        }
-        , {
-            id:2,
-            name: "Project Two",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image: "/Screenshot2.png",
-            link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
-        }
-        , {
-            id:3,
-            name: "Project Three",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, volupt Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, volupt",
-            image: "/Screenshot3.png",
-            link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        }
-    ];
     useEffect(() => {
-        const timer = setTimeout(() => {
+        const fetchProjects = async () => {
+            const data = await getProjects();
+            if (data) {
+                setProjects(data.projects);
+            }
             setLoading(false);
-        }, 1000);
+        };
 
-        return () => clearTimeout(timer);
+        fetchProjects();
     }, []);
+
+
     return (
         <main className="mt-12">
             <div className="bg-brown px-4 py-12 mb-5">
@@ -55,8 +43,8 @@ export default function Projects() {
                         <Spinner />
                     ) :
                         <div className="lg:p-8">
-                            {projects.map((project, index) => (
-                                <><Project key={index} {...project} />
+                            {projects.map((project:any, index) => (
+                                <><Project key={project.id} {...project} />
                                     {index < projects.length - 1 && (
                                         <hr className="border-b-2 border-blue-300 w-1/6 mt-6 mb-16 mx-auto" />
                                     )}
