@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="flex basis-1/4 items-center justify-between mx-5 my-8 px-4">
+      <nav className="flex basis-1/4 md:items-center justify-between mx-5 my-8 px-4">
         <span className="text-lg font-bold">
           <Link href="/about" className="cursor-pointer" >
             <span className="bg-blue-500 py-1 px-4 mr-2 max-sm:hidden"></span>
@@ -51,7 +51,7 @@ export default function Header() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
-          className="sm:hidden absolute top-5 right-5 z-50 text-blue-600"
+          className="sm:hidden absolute top-8 right-5 z-50 text-blue-600"
           aria-label="Toggle Menu"
         >
           {isMenuOpen ? <X size={30} /> : <Menu size={30} />}
