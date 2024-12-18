@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Spinner from "@/app/components/loadingSpinner/spinner";
 import { ProjectType } from "@/app/global";
 
-const getProjects= async () => {
+const getProjects = async () => {
   try {
     const response = await fetch("/api/projects");
     const data = await response.json();
@@ -18,15 +18,15 @@ const getProjects= async () => {
 
 interface ProjectDetailProps {
   params: {
-  id: string;
+    id: string;
   };
-  }
+}
 
-export default function ProjectDetail( {params }: ProjectDetailProps) {
+export default function ProjectDetail({ params }: ProjectDetailProps) {
 
   const projectID = params.id;
   const [loading, setLoading] = useState(true);
-  const [project, setProject] = useState<ProjectType | null >(null);
+  const [project, setProject] = useState<ProjectType | null>(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -72,18 +72,18 @@ export default function ProjectDetail( {params }: ProjectDetailProps) {
             />
           </div>
           <p className="mb-6 leading-6 text-base  text-neutral-950 tracking-wider">{project.description}</p>
-          <div className="flex space-x-4">
+          <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
             <Link
               href={project.link || "#"}
               target="_blank"
-              className="flex bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="flex bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600  md:w-1/3 w-1/2"
             > <Eye />
               <span className="ml-2"> View Project</span>
             </Link>
             <Link
               href={project.githubLink || "#"}
               target="_blank"
-              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 flex"
+              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 flex md:w-1/3 w-1/2"
             ><Github />
               <span className="ml-2">GitHub Repository</span>
             </Link>
