@@ -1,28 +1,28 @@
 import Project from "@/app/(models)/project";
-import {NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET () {
+export async function GET() {
     try {
-        const projects = await Project.find();
-        console.log("here are projects", projects);
-        return NextResponse.json({message:"Success", projects}, {status: 200})
-    } catch(error) {
-        return NextResponse.json({message:"Error", error}, {status: 500})
+        const projects = await Project.find().sort({ createdAt: -1 });
+        return NextResponse.json({ message: "Success", projects }, { status: 200 })
+    } catch (error) {
+        return NextResponse.json({ message: "Error", error }, { status: 500 })
     }
 }
 
-export async function POST (){
+export async function POST(request:NextRequest) {
     try {
+        const body = await request.json();
         const project = new Project({
-            title: "Project One",
-            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-            image:"/Screenshot.png",
-            link: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            githubLink: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            title: body.title,
+            description: body.description,
+            image: body.image,
+            link: body.link,
+            githubLink: body.githubLink,
         });
-        project.save();
-        return NextResponse.json({message:"Success", project}, {status: 201})
-    } catch(error) {
-        return NextResponse.json({message:"Error", error}, {status: 500})
+        await project.save();
+        return NextResponse.json({ message: "Success", project }, { status: 201 });
+    } catch (error) {
+        return NextResponse.json({ message: "Error", error }, { status: 500 });
     }
 }
