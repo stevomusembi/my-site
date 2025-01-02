@@ -28,7 +28,7 @@ export default function Project(project: ProjectType) {
                 <div className="flex flex-col md:w-1/2 md:pl-4 py-2 px-2 text-gray-700 mt-4 md:mt-0 relative">
                     <div className="flex flex-col justify-between md:mb-auto " >
                         <span className="font-bold text-xl">{project.title}</span>
-                        <span className="mt-2 leading-7  text-base  text-neutral-950 tracking-wider">{project.description}</span>
+                        <span className="mt-2 leading-7  text-base  text-neutral-950 tracking-wider line-clamp-3">{project.description}</span>
                     </div>
                     <div className="flex  mt-4 space-x-4 absolute bottom-0 right-0 max-lg:hidden">
                         <a href={project.githubLink} className=" hover:text-blue-800 cursor-pointer" target="_blank" rel="noopener noreferrer">

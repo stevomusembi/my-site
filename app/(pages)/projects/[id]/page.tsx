@@ -71,7 +71,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
               className="rounded-lg "
             />
           </div>
-          <p className="mb-6 leading-6 text-base  text-neutral-950 tracking-wider">{project.description}</p>
+          <p className="mb-6 leading-6 text-base  text-neutral-950 tracking-wider"dangerouslySetInnerHTML={{__html:project.description}} ></p>
           <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
             <Link
               href={project.link || "#"}
